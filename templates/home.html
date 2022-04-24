@@ -1,0 +1,18 @@
+{% extends 'main.html' %}
+
+
+{% block content %}
+
+<h1>Home</h1>
+
+<div>
+    {% for channel in channels %}
+        <div>
+            <h1>
+                {{ channel.id }} {{ channel.name }}
+            </h1>
+        </div>
+    {% endfor %}
+</div>
+
+{% endblock content %}
