@@ -12,7 +12,12 @@ channels = [
 
 def home(request):
     context = {'channels': channels}
-    return render(request, 'home.html', context)
+    return render(request, 'base/home.html', context)
 
-def room(request):
-    return render(request, 'room.html')
+def channel(request, key):
+    channel = None
+    for i in channels:
+        if i['id'] == int(key):
+            channel = i
+    context = {'channel': channel}
+    return render(request, 'base/channel.html', context)
