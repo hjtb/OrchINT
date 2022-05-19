@@ -1,7 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 
-# Create your views here.
 
 channels = [
     {'id': 1, 'name': 'first_militia'},
@@ -10,14 +9,16 @@ channels = [
     {'id': 4, 'name': 'fourth_militia'},
 ]
 
+
 def home(request):
     context = {'channels': channels}
     return render(request, 'base/home.html', context)
 
+
 def channel(request, key):
-    channel = None
+    current_channel = None
     for i in channels:
         if i['id'] == int(key):
-            channel = i
-    context = {'channel': channel}
+            current_channel = i
+    context = {'current_channel': current_channel}
     return render(request, 'base/channel.html', context)

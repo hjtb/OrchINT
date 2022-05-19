@@ -9,7 +9,7 @@
     {% for channel in channels %}
         <div>
             <h1>
-                {{ channel.id }} <a href="/channel/{{ channel.id }}">{{ channel.name }}</a>
+                {{ channel.id }} <a href="{% url 'channel' channel.id %}">{{ channel.name }}</a>
             </h1>
         </div>
     {% endfor %}
