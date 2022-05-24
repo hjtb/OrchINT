@@ -28,6 +28,7 @@ DEBUG = config('DEBUG', cast=bool)
 
 ALLOWED_HOSTS = []
 
+#CSRF_TRUSTED_ORIGINS=['https://hjtb-orchint-7wasb2kfmr9.ws-eu45.gitpod.io/']
 
 # Application definition
 
