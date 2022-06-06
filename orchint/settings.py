@@ -28,7 +28,8 @@ DEBUG = config('DEBUG', cast=bool)
 
 ALLOWED_HOSTS = []
 
-CSRF_TRUSTED_ORIGINS=['https://hjtb-orchint-7wasb2kfmr9.ws-eu45.gitpod.io/','https://8000-hjtb-orchint-7wasb2kfmr9.ws-eu46.gitpod.io']
+CSRF_TRUSTED_ORIGINS = ['https://hjtb-orchint-7wasb2kfmr9.ws-eu45.gitpod.io/',
+                        'https://8000-hjtb-orchint-7wasb2kfmr9.ws-eu46.gitpod.io']
 
 # Application definition
 
@@ -80,17 +81,22 @@ WSGI_APPLICATION = 'orchint.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    },
-    'postgresql': {
-        'NAME': config('DB_USER'),
-        'ENGINE': 'django.db.backends.postgresql',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': config('DB_NAME'),
         'USER': config('DB_USER'),
         'PASSWORD': config('DB_PASSWORD'),
         'HOST': config('DB_HOST'),
+        'PORT': config('DB_PORT'),
     }
 }
+
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     },
+# }
 
 
 # Password validation
